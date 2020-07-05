@@ -1,0 +1,19 @@
+message: "@here Good morning people! Today's scrum order is:"
+groups:
+  - group:
+    name: Development
+    members:
+      - Capi
+      - Moslo
+      - Mañe
+      - Grego
+      - Danier
+  - group:
+    name: QA
+    members:
+      - Hillary
+      - Mario
+  - group:
+    name: Design
+    members:
+      - Nicole
