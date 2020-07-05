@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"math/rand"
+	"os"
 	"time"
 
 	"github.com/danoviedo91/scrum-rand/models"
@@ -14,7 +15,8 @@ import (
 func main() {
 	var source models.Source
 
-	yamlFile, err := ioutil.ReadFile("./scrum-groups.yml")
+	yamlPath := os.Args[1]
+	yamlFile, err := ioutil.ReadFile(yamlPath)
 
 	if err != nil {
 		log.Fatalf("Cannot read yaml file: %v", err)
