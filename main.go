@@ -8,6 +8,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/atotto/clipboard"
 	"github.com/danoviedo91/scrum-rand/models"
 	"gopkg.in/yaml.v2"
 )
@@ -27,9 +28,6 @@ func main() {
 		log.Fatalf("Cannot unmarshal data: %v", err)
 	}
 
-	// Print message ...
-	fmt.Println(source.Message)
-
 	// This is to get different groups/members random order each time it is run
 	rand.Seed(time.Now().UnixNano())
 
@@ -43,10 +41,13 @@ func main() {
 	// Shuffle groups
 	rand.Shuffle(len(source.Groups), func(i, j int) { source.Groups[i], source.Groups[j] = source.Groups[j], source.Groups[i] })
 
-	// Rock n' roll
+	message := fmt.Sprintf("%v\n", source.Message)
 	for _, group := range source.Groups {
 		for _, member := range group.Members {
-			fmt.Println(member)
+			message = fmt.Sprintf("%v%v\n", message, member)
 		}
 	}
+
+	clipboard.WriteAll(message)
+	fmt.Println("Success! Copied to clipboard.")
 }
