@@ -8,11 +8,13 @@ groups:
       - Mañe
       - Grego
       - Danier
+      - Andrew
   - group:
     name: QA
     members:
       - Hillary
       - Mario
+      - Joe
   - group:
     name: Design
     members:
