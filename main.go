@@ -38,6 +38,8 @@ func main() {
 		})
 	}
 
+	fmt.Printf("Some random stuff")
+
 	// Shuffle groups
 	rand.Shuffle(len(source.Groups), func(i, j int) { source.Groups[i], source.Groups[j] = source.Groups[j], source.Groups[i] })
 
